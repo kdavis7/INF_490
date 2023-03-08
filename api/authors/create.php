@@ -27,4 +27,6 @@
         $authors->create();
         echo json_encode(array('id'=> $db->lastInsertId(),'author'=>$authors->author));
     }
+
+    
     ?>

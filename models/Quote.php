@@ -67,8 +67,13 @@
     
             $stmt = $this->conn->prepare($query);
             
-            if($this->author_id) $stmt->bindParam(':author_id', $this->author_id);
-            if($this->category_id) $stmt->bindParam(':category_id', $this->category_id);
+            if($this->author_id){
+                $stmt->bindParam(':author_id', $this->author_id);
+            }
+            
+            if($this->category_id) {
+            $stmt->bindParam(':category_id', $this->category_id);
+            }
 
             $stmt->execute();
 
