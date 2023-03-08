@@ -12,7 +12,7 @@
     $database = new Database();
     $db = $database->connect();
   
-    $authors = new Authors($db);
+    $authors = new Author($db);
 
     
     $data = json_decode(file_get_contents("php://input"));
@@ -28,5 +28,5 @@
         echo json_encode(array('id'=> $db->lastInsertId(),'author'=>$authors->author));
     }
 
-    
+
     ?>

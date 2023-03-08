@@ -11,7 +11,7 @@
          exit();
      } 
 
-     
+
      if ($method === 'PUT'){
         require('update.php');
       }
@@ -28,11 +28,6 @@
       else ($method === 'POST'){
         require('create.php');
       }
-
-
-
-
-
 
 
 

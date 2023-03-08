@@ -1,5 +1,5 @@
 <?php
-    class Authors{
+    class Author{
         //DB STUFF
         private $conn;
         private $table = 'authors';
