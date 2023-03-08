@@ -1,0 +1,2 @@
+#Ignore environmental variables stored DO NOT PUSH TO GITHUB. 
+*.htaccess
