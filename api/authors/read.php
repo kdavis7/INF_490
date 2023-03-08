@@ -1,6 +1,6 @@
 <?php
   header('Access-Control-Allow-Origin: *');
-  header('Content-Tupe:application/json');
+  header('Content-Type: application/json');
   
   require( '../../config/Database.php');
   require('../../models/Author.php');
@@ -37,4 +37,5 @@
   else {
     echo json_encode(array('message' => "No Authors Found!"));
   }
+  
   ?>
