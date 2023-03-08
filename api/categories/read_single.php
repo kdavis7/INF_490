@@ -18,7 +18,7 @@
     if($categories->read_single()) {
       echo json_encode(array('id' => $categories->id,'category' => $categories->category));
     }
-  else {
+    else {
       echo json_encode(array('message' => 'category_id Not Found'));
 
   }
