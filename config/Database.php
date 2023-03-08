@@ -1,4 +1,5 @@
 <?php
+// DATABASE CONNECTION for Render.com. => .htaccess for DB variables. 
     class Database {
         private $host;
         private $port;
@@ -23,7 +24,7 @@
             }else{
 
                 $dsn = "pgsql:host={$this->host};port={$this->port};dbname={$this->dbname};";
-
+            //Catch Connection Error 
             try{
                 $this->conn = new PDO($dsn, $this->username, $this->password);
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
