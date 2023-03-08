@@ -1,5 +1,5 @@
 <?php
-    class Author{
+    class Authors{
         private $conn;
         private $table = 'authors';
 
@@ -15,18 +15,19 @@
                     id,
                     author
                     FROM ".$this->table."
-                    ORDER BY id ASC";
+                    ORDER BY id";
         
 
-        $stmt = $this->conn->prepare($query);
+             $stmt = $this->conn->prepare($query);
 
-        $stmt->execute();
+             $stmt->execute();
 
-        return $stmt;
+             return $stmt;
         }
 
+        //Read Single
         public function read_single() {
-           
+            //Create Query
                 $query = "SELECT
                         id,
                         author
@@ -36,11 +37,19 @@
             
     
             $stmt = $this->conn->prepare($query);
+
+            //sanitize data
             $this->id = htmlspecialchars(strip_tags($this->id));
+
+            //Bind ID
             $stmt->bindParam(':id', $this->id);
+
+
             $stmt->execute();
 
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            //Check for $row then set properties.
             if($row){
                 $this->id = $row['id'];
                 $this->author = $row['author'];
@@ -50,7 +59,7 @@
                 return false;
             }
 
-        }
+        } //END OF READ_SINGLE
 
         public function create() {
             $query = "INSERT INTO ".$this->table." (author) VALUES(:author)";
@@ -70,7 +79,9 @@
         }
 
         public function update() {
-            $query ="UPDATE ".$this->table." SET author = :author WHERE id = :id";
+            $query = 'UPDATE'.$this->table.' 
+            SET author = :author 
+            WHERE id = :id';
          
                 $stmt = $this->conn->prepare($query);
                 $this->author = htmlspecialchars(strip_tags($this->author));
