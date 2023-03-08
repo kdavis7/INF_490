@@ -62,7 +62,7 @@
                             FROM " . $this->table ." q
                             INNER JOIN authors a on q.author_id = a.id
                             INNER JOIN categories c on q.category_id = c.id 
-                            ORDER BY q.id ASC";
+                            ORDER BY q.id";
                 }
     
             $stmt = $this->conn->prepare($query);
