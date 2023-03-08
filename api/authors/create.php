@@ -8,11 +8,11 @@
     require('../../config/Database.php');
     require( '../../models/Author.php');
   
-  
+  // Instantiate DB & connect
     $database = new Database();
     $db = $database->connect();
   
-    $authors = new Author($db);
+    $authors = new Authors($db);
 
     
     $data = json_decode(file_get_contents("php://input"));
