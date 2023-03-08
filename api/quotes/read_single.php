@@ -24,9 +24,7 @@
     );
    }
  else {
-   $quote_arr = array(
-     'message' => 'No Quotes Found'
-   );
+   $quote_arr = array('message' => 'No Quotes Found');
 
  }
 
