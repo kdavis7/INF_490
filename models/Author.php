@@ -1,16 +1,22 @@
 <?php
     class Authors{
+        //DB STUFF
         private $conn;
         private $table = 'authors';
 
+        //Properties
         public $id;
         public $author;
 
+
+        //DB Constructor
         public function __construct ($db) {
             $this->conn = $db;
         }
 
+        //Read 
         public function read(){
+            //create Query
             $query = "SELECT
                     id,
                     author
@@ -106,19 +112,26 @@
                 }     
                 
         }
-
+        //Delete Function 
         public function delete() {
             $query ="DELETE FROM ".$this->table." WHERE id = :id";
          
                 $stmt = $this->conn->prepare($query);
+
+                //clean data
                 $this->id = htmlspecialchars(strip_tags($this->id));
 
+                //Bind Parameter
                 $stmt->bindParam(':id', $this->id);
 
-                if ($stmt->execute())   
-                { return true;}     
-                else {
+                if ($stmt->execute())   { 
+
+                    return true;
+                }     
+                else 
+                {
                     printf("Error: %s. \n", $stmt->error);
+
                     return false;
                 }     
                 

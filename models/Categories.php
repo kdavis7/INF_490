@@ -1,5 +1,5 @@
 <?php
-    class Category{
+    class Categories{
         //DB STUFF
         private $conn;
         private $table = 'categories';
@@ -51,7 +51,7 @@
             $stmt->execute();
 
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            
+
             //Check for $row
             if($row)
             {
